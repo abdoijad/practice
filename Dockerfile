@@ -1,7 +1,7 @@
-FROM centos:latest
+FROM ubuntu:latest
 LABEL Name="Amol"
 LABEL Email="amoldoijad1@gmail.com"
-RUN yum install httpd -y
+RUN apt-get update && apt-get install apache2 -y
 WORKDIR /var/www/html
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 80
